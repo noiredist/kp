@@ -4,94 +4,102 @@
     <title>Hyperspace by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
     <style>
-      .parent-slider {
-        width: 95vw;
-        margin: 20px auto;
-        text-align: center;
-      }
-      .parent-slider .parent-slide {
-        padding: 15px;
-      }
-      .parent-slider{
-        position: relative;
-      }
-      .parent-slider img {
-        display: block;
-        margin: auto;
-      }
-      .parent-slider img:before {
-        content:"長按取得優惠券";
-        background: rgba(0,0,0,.6);
-        position: absolute;
-        bottom: 0;
-        color: #fff;
-        width: 100%;
-        left: 0;
-        height: 40px;
-      }      
-      .parent-slider h2 {
-        color: white;
-      }
+    #myCarousel{
+      width: 100vw;
+      margin: 0 auto;
+    }
+    .caption-animate .item.active .carousel-caption {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    .caption-animate  .item.active .carousel-caption.infinite {
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+
+    .caption-animate  .item.active .carousel-caption.hinge {
+      -webkit-animation-duration: 2s;
+      animation-duration: 2s;
+    }
+
+    .caption-animate .item.active .carousel-caption.flipOutX,
+    .caption-animate .item.active .carousel-caption.flipOutY,
+    .caption-animate .item.active .carousel-caption.bounceIn,
+    .caption-animate .item.active .carousel-caption.bounceOut {
+      -webkit-animation-duration: .75s;
+      animation-duration: .75s;
+    }
+    .caption-animate .item .carousel-caption.fadeIn,
+    .caption-animate .item .carousel-caption.fadeInDown,
+    .caption-animate .item .carousel-caption.fadeInDownBig,
+    .caption-animate .item .carousel-caption.fadeInLeft,
+    .caption-animate .item .carousel-caption.fadeInLeftBig,
+    .caption-animate .item .carousel-caption.fadeInRight,
+    .caption-animate .item .carousel-caption.fadeInRightBig,
+    .caption-animate .item .carousel-caption.fadeInUp,
+    .caption-animate .item .carousel-caption.fadeInUpBig{
+      opacity:0;
+    }
     </style>      
   </head>
   <body>
-<div class="parent-slider">
-  <div class="parent-slide">
-    <img src="./img/KFC.jpg" alt="KFC" class="img-responsive" />
-    <div class="serial_num">19169</div><a>前往最近的KFC肯德基</a>
-  </div>
-  <div class="parent-slide">
-    <img src="./img/pizza.jpg" alt="KFC" class="img-responsive" />
-    <div class="serial_num">119674</div><a>前往最近的Pizza Hut必勝客</a>
-  </div>
-</div>
-</body>
-<script>
-$('.parent-slider').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 3500,
-  pauseOnHover:true,
-  cssEase: "ease",
-  allow: false,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-$('.child-slider').slick({
-  responsive: [{breakpoint: 1024,},{breakpoint: 600,},{breakpoint: 480,}]
-})
-</script>  
+    <div id="myCarousel" class="carousel slide caption-animate" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="https://www.w3schools.com/bootstrap/img_chania.jpg" alt="Chania">
+          <div class="carousel-caption fadeInDown">
+            <h3>One</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://www.w3schools.com/bootstrap/img_chania2.jpg" alt="Chania">
+          <div class="carousel-caption fadeInRight">
+            <h3>Two</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://www.w3schools.com/bootstrap/img_flower.jpg" alt="Flower">
+          <div class="carousel-caption fadeInLeft">
+            <h3>Three</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://www.w3schools.com/bootstrap/img_flower2.jpg" alt="Flower">
+          <div class="carousel-caption bounce">
+            <h3>Four</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+   </body>
 </html>
