@@ -132,12 +132,12 @@
   } else if (navigator.userAgent.match(/Android/i)) {
     if (navigator.userAgent.match(/Chrome/i)) {
       // Android + Chrome
-    $('.kfc_link').attr('download','./img/kfc.jpg');
-    $('.pizza_link').attr('download','./img/pizza.jpg');
+    $('.kfc_link').attr({'download':'./img/kfc.jpg','href':'./img/kfc.jpg'});
+    $('.pizza_link').attr({'download':'./img/pizza.jpg','href':'./img/pizza.jpg'});
     } else {
       // Android + 非 Chrome
-    $('.kfc_link').attr('href','kfc.html');
-    $('.pizza_link').attr('href','pizza.html');    
+    $('.kfc_link').attr({'download':'./img/kfc.jpg','href':'./img/kfc.jpg'});
+    $('.pizza_link').attr({'download':'./img/pizza.jpg','href':'./img/pizza.jpg'}); 
     }
   } else if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
     // iOS
