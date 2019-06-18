@@ -124,10 +124,8 @@
 	</div>
 </body>
 <script>
- window.onload = function() {
-  $(document).height('100vh');
-
-  if (navigator.userAgent.match(/Windows Phone/i)) {
+ $(document).ready(function(){
+     if (navigator.userAgent.match(/Windows Phone/i)) {
     // Windows Phone
     $('.kfc_link').attr('href','kfc.html');
     $('.pizza_link').attr('href','pizza.html');    
@@ -150,6 +148,9 @@
     $('.kfc_link').attr('href','kfc.html');
     $('.pizza_link').attr('href','pizza.html');    
   } 
+ }) 
+ window.onload = function() {
+  $(document).height('100vh');
 }
 $(document).on('touchstart','.buttons',function(e){
 	var x=e.originalEvent.changedTouches[0].clientX;
