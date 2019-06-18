@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Hyperspace by HTML5 UP</title>
+    <title>KFC & Pizza Hut夏日優惠</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -128,9 +128,10 @@ $(document).on('touchstart','.buttons',function(e){
   var below=$(document).height()- 150;
   console.log(y+" "+below);
 	if(x<half&&y>below){
-		window.location.href="https://www.google.com/maps/search/%E8%82%AF%E5%BE%B7%E5%9F%BA";
+		// window.location.href="https://www.google.com/maps/search/?api=1&%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=10";
+		window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=10";
 	}else if(x>half&&y>below){
-		window.location.href="https://www.google.com/maps/search/%E5%BF%85%E5%8B%9D%E5%AE%A2";
+		window.location.href="https://www.google.com/maps/search/?api=1&%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=10";
 	}
 });
 // $(document).on('touchstart','a[href^="#"]',function(e){
