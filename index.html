@@ -158,11 +158,19 @@ $(document).on('touchstart','.buttons',function(e){
 	var half=$(document).width()*.5;
   var below=$(document).height()- 150;
   console.log(y+" "+below);
-	if(x<half&&y>below){
-		window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11";
-	}else if(x>half&&y>below){
-		window.location.href="comgooglemaps://?q=%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11";
-	}
+  if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+  	if(x<half&&y>below){
+  		window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11";
+  	}else if(x>half&&y>below){
+  		window.location.href="comgooglemaps://?q=%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11";
+  	}
+  }else{
+    if(x<half&&y>below){
+      window.open('https://www.google.com/maps/search/%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11', '_blank');
+    }else if(x>half&&y>below){
+      window.open('https://www.google.com/maps/search/%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11', '_blank');
+    }    
+  }
 });
 // $(document).on('touchstart','a[href^="#"]',function(e){
 // 	e.preventDefault();
