@@ -99,18 +99,23 @@
   <body>
 	<div class="parent-slider">
 	  <div class="parent-slide">
+      <a class="kfc_link">
 	    <img src="./img/kfc.jpg" alt="KFC" class="img-responsive" />
 	    <div class="serial_num">
 	     優惠序號<big>19169</big>
 	    </div>
-	    <a><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+	    <a class="kfc_link"><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+      </a>
 	  </div>
+
 	  <div class="parent-slide">
+      <a class="pizza_link">
 	    <img src="./img/pizza.jpg" alt="KFC" class="img-responsive" />
 	    <div class="serial_num">
 	     優惠序號<big>19674</big>
 	    </div>
-	    <a><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+	    <a class="pizza_link"><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+      </a>
 	  </div>
 	</div>
 	<div class="buttons">
@@ -120,6 +125,30 @@
 <script>
  window.onload = function() {
   $(document).height('100vh');
+
+  if (navigator.userAgent.match(/Windows Phone/i)) {
+    // Windows Phone
+    $('.kfc_link').attr('href','kfc.html');
+    $('.pizza_link').attr('href','pizza.html');    
+  } else if (navigator.userAgent.match(/Android/i)) {
+    if (navigator.userAgent.match(/Chrome/i)) {
+      // Android + Chrome
+    $('.kfc_link').attr('download','./img/kfc.jpg');
+    $('.pizza_link').attr('download','./img/pizza.jpg');
+    } else {
+      // Android + 非 Chrome
+    $('.kfc_link').attr('href','kfc.html');
+    $('.pizza_link').attr('href','pizza.html');    
+    }
+  } else if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+    // iOS
+    $('.kfc_link').attr('href','kfc.html');
+    $('.pizza_link').attr('href','pizza.html');
+  } else {
+    // 其他
+    $('.kfc_link').attr('href','kfc.html');
+    $('.pizza_link').attr('href','pizza.html');    
+  } 
 }
 $(document).on('touchstart','.buttons',function(e){
 	var x=e.originalEvent.changedTouches[0].clientX;
