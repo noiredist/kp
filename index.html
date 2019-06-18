@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>KFC & Pizza Hut夏日優惠</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css">
+    <style>
+      body{
+      	background-image: url('./img/bg.png');
+      	background-size: cover;
+        background-color: #fff998;
+        /*background-position: -30px center;*/
+      	overflow-y: hidden;
+        max-height: 100vh;
+      	/*background-position: -30px center;*/
+      }
+      .parent-slider {
+        width: 100vw;
+        margin-top: 30vh;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        position: relative;
+      }
+      .parent-slider .parent-slide {
+        padding: 15px;
+        position: relative;
+      }
+      .serial_num{
+	    position: absolute;
+	    bottom: 25px;
+	    left: 12%;
+	    font-size: 14px;  
+	    width: 30%;  	
+      }
+      .parent-slide > img {
+        display: block;
+        margin: auto;
+        width: 85%;
+	    border: 10px solid white;
+	    border-bottom: 50px solid white;        
+	    box-shadow: 0px 3px 20px 5px rgba(0,0,0,.2);
+	    border-radius: 6px
+	  }
+	  .parent-slide a{
+	  	width: 40%;
+	  	display: block;
+	  	position: absolute;
+	  	bottom: 25px;
+	  	right: 15%;
+	  }  	  
+	  .parent-slide a img{
+	  	width: 100%;
+	  }    
+      .parent-slider h2 {
+        color: white;
+      }
+      .buttons{
+      	position: fixed;
+      	bottom: 0;
+      	width: 100vw;
+      }
+      .buttons img{
+      	width: 100vw;
+      }
+      .slick-prev, .slick-next{
+      	width: auto;
+      }
+	.slick-prev {
+	    left: 10px;
+	    animation: goright 2s infinite .2s ease;
+	}      
+	.slick-next {
+	    right: 10px;
+	    animation: goright 2s infinite .2s ease reverse;
+	}      
+	  .slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+		opacity: 0;
+      } 
+	  .slick-prev:before, .slick-next:before{
+	  	 font-size: 30px;
+	  	 color: #8a6d3b;
+	  	 opacity: .85;
+	  } 
+	  @keyframes goright{
+	  	0%{transform: translate3d(-3px,0,0);}
+	  	25%{transform: translate3d(0px,0,0);}
+	  	50%{transform: translate3d(-3px,0,0);}
+	  	75%{transform: translate3d(2px,0,0);}
+	  	100%{transform: translate3d(-3px,0,0);}
+	  }   
+    </style>      
+  </head>
+  <body>
+	<div class="parent-slider">
+	  <div class="parent-slide">
+	    <img src="./img/kfc.jpg" alt="KFC" class="img-responsive" />
+	    <div class="serial_num">
+	     優惠序號<big>19169</big>
+	    </div>
+	    <a><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+	  </div>
+	  <div class="parent-slide">
+	    <img src="./img/pizza.jpg" alt="KFC" class="img-responsive" />
+	    <div class="serial_num">
+	     優惠序號<big>19674</big>
+	    </div>
+	    <a><img src="./img/download.jpg" alt="download" class="img-responsive" /></a>
+	  </div>
+	</div>
+	<div class="buttons">
+		<img src="./img/buttons.png">
+	</div>
+</body>
+<script>
+ window.onload = function() {
+  $(document).height('100vh');
+}
+$(document).on('touchstart','.buttons',function(e){
+	var x=e.originalEvent.changedTouches[0].clientX;
+  var y=e.originalEvent.changedTouches[0].clientY;
+	var half=$(document).width()*.5;
+  var below=$(document).height()- 150;
+  console.log(y+" "+below);
+	if(x<half&&y>below){
+		window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11";
+	}else if(x>half&&y>below){
+		window.location.href="comgooglemaps://?q=%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11";
+	}
+});
+// $(document).on('touchstart','a[href^="#"]',function(e){
+// 	e.preventDefault();
+// });
+$('.parent-slider').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3500,
+  pauseOnHover:true,
+  cssEase: "ease",
+  allow: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+$('.child-slider').slick({
+  responsive: [{breakpoint: 1024,},{breakpoint: 600,},{breakpoint: 480,}]
+})
+</script>  
+</html>
