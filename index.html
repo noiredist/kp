@@ -160,9 +160,11 @@ $(document).on('touchstart','.buttons',function(e){
   console.log(y+" "+below);
   if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
   	if(x<half&&y>below){
-  		window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11";
+  		// window.location.href="comgooglemaps://?q=%E8%82%AF%E5%BE%B7%E5%9F%BA&zoom=11";
+      window.location.href="kfcmap.html";
   	}else if(x>half&&y>below){
-  		window.location.href="comgooglemaps://?q=%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11";
+  		// window.location.href="comgooglemaps://?q=%E5%BF%85%E5%8B%9D%E5%AE%A2&zoom=11";
+      window.location.href="pizzamap.html";
   	}
   }else{
     if(x<half&&y>below){
